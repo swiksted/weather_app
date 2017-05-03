@@ -1,18 +1,16 @@
 #Use FROM instruction to use a suitable docker image as base (browse docker hub)
-FROM debian:latest
+FROM centos:latest
 
 ADD . /code
 WORKDIR /code
 
-RUN apt-get update && apt-get install -y locales && rm -rf /var/lib/apt/lists/* \
-    && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
-
 ENV LANG en_US.utf8
 
-RUN apt-get update && apt-get install -y python npm nodejs-legacy
+RUN yum install epel-release -y
+RUN yum update -y && yum install nodejs -y
 
 WORKDIR /code/backend
-RUN npm i && npm start
+#RUN npm i && npm start
 
 WORKDIR /code/frontend
 RUN npm i && npm start

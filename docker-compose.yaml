@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+   backend:
+      build: backend
+      image: centos
+      ports:
+      - "9000:9000"      
+      volumes:
+      - .:/code
+  
+   frontend:
+      build: frontend
+      image: centos
+      ports:
+      - "8000:8000"
+      volumes:
+      - .:/code

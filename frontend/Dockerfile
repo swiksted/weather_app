@@ -9,8 +9,8 @@ ENV LANG en_US.utf8
 RUN yum install epel-release -y
 RUN yum update -y && yum install nodejs -y
 
-WORKDIR /code/backend
-#RUN npm i && npm start
-
 WORKDIR /code/frontend
 RUN npm i && npm start
+
+EXPOSE 8000
+

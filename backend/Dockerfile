@@ -1,18 +1,11 @@
-#Use FROM instruction to use a suitable docker image as base (browse docker hub)
-FROM node:latest
+FROM node:alpine
 
-ENV APPID=7093bd26ea2ca1f8800f9af6f7597134
-
-ADD . /code
+RUN mkdir -p /code
 WORKDIR /code
 
-ENV LANG en_US.utf8
-
-#RUN yum install epel-release -y
-#RUN yum update -y && yum install nodejs -y
+COPY . /code
+RUN npm install
 
 EXPOSE 9000
 
-WORKDIR /code/backend
-RUN npm i && npm start
-
+CMD npm start

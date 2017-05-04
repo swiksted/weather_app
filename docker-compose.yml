@@ -4,7 +4,7 @@ services:
   backend:
     build: backend
     environment:
-      APPID: 123856172645172564
+      APPID: 7093bd26ea2ca1f8800f9af6f7597134
     ports:
     - 9000:9000
 
